@@ -55,7 +55,7 @@ Call boxplot_all function to make boxplots. Default is TRUE.
 Call clusterdend function to make cluster dendrograms. Default is TRUE.
 }
   \item{PCA}{
-Call makePCA function to make PCA plots. Default is TRUE
+Call makePCA function to make PCA plots. Default is TRUE.
 }
   \item{estimates}{
 If TRUE, clusters for estimates_m are made. Default is FALSE.

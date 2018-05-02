@@ -50,7 +50,7 @@ Output results directory. Default is ResultsDir.
 }
 }
 \details{
-This function outputs boxplots for quality assessment in microarray data using objects obtained with aroma.affymetrix package pre-processing. A boxplot with raw data, and a boxplot with Normalized data. Additionally reports relative log expression values (RLE), and the second the normalized unscaled standard errors (NUSE).
+This function outputs boxplots for quality assessment in microarray data using objects obtained with aroma.affymetrix package pre-processing. A boxplot with raw data, and a boxplot with Normalized data. Additionally reports relative log expression values (RLE), and normalized unscaled standard errors (NUSE).
 }
 \value{
 This function outputs plots in .png format in the resDir directory.
