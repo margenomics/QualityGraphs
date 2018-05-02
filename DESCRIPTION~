@@ -1,0 +1,9 @@
+Package: quality_graphs
+Type: Package
+Title: Make quality graphs for microarray data
+Version: 1.0
+Date: 2018-04-30
+Author: Magdalena Arnal <marnal@imim.es>
+Maintainer: Magdalena Arnal <marnal@imim.es>
+Description: Package to make density plots, boxplots for raw and normalized data, clusters with different methods (average, Ward.D2 and complete) and with different distances (euclidean and correlations)
+License: MIT + file LICENSE

@@ -1,0 +1,3 @@
+import(R.utils, Biobase, aroma.affymetrix, RColorBrewer)
+
+export(densityplot_all, boxplot_all, clusterdend, makePCA)
