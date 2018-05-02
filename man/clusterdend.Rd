@@ -5,7 +5,7 @@
 Clusters for normalized microarray data
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Function to make plots with dendrograms using different clustering methods. Methods are Ward.D2, complete and average with correlations and euclidean distances.
 }
 \usage{
 clusterdend(estimates_m = NULL, est_noctrls = NULL, picname, conditions = NULL, colors = NULL, estimates = FALSE, noctrls = TRUE, resDir = NULL)
