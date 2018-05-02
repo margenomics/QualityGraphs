@@ -2,10 +2,10 @@
 \alias{makePCA}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Function to make a PCA plot with microarray data
+3D Plot with Principal Component Analysis (PCA)
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function performs a principal component analysis with the prcomp function and uses the prcomp class object to plot the three first principal components.
 }
 \usage{
 makePCA(est_noctrls, picname, conditions = NULL, colors = NULL, dist = 2, resDir = NULL)
@@ -13,33 +13,29 @@ makePCA(est_noctrls, picname, conditions = NULL, colors = NULL, dist = 2, resDir
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{est_noctrls}{
-%%     ~~Describe \code{est_noctrls} here~~
+Numeric matrix where columns are samples and rows genes. est_noctrls corresponds to a matrix without controls.
 }
   \item{picname}{
-%%     ~~Describe \code{picname} here~~
+Character with the output file name.
 }
   \item{conditions}{
-%%     ~~Describe \code{conditions} here~~
+Optional. Vector with sample conditions to colour sample names in the plot. conditions vector has to have the same order as the order of samples in the columns of the input expression matrix.
 }
   \item{colors}{
-%%     ~~Describe \code{colors} here~~
+Optional. Vector with colors corresponding to each sample. If this parameter is not defined, default colors will be used.
 }
   \item{dist}{
-%%     ~~Describe \code{dist} here~~
+Distance where the name of the sample is located with respect to the corresponing point in the plot. Optimal distance is different deppending on the sample number and PC distances. Default is 2. 
 }
   \item{resDir}{
-%%     ~~Describe \code{resDir} here~~
+Output results directory. Default is ResultsDir.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The first three principal components obtained with the prcomp function capture part of the variability explaining the sample distribution. Each PC is represented in an axis of the plot, x.axis=PC1, y.axis=PC2 and z.axis=PC3. This plot is useful to check the overall similarity among samples. Column names in the expression matrix are used as sample names.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Output is a .png file with the results in resDir.
 }
 \references{
 %% ~put references to the literature/web site here ~

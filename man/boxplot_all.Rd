@@ -16,19 +16,19 @@ boxplot_all(ds, ds.N = NULL, plmTr = NULL, picname, labels = labels, conditions 
 ds object created with aroma.affymetrix and the function AffymetrixCelSet() from the .CEl files and the cdf file.
 }
   \item{ds.N}{
-object with normalized data from .CEL files with RMA and quantile normalization.
+Aroma affymetrix ds.N object with the normalized data from .CEL files using RMA and quantile normalization.
 }
   \item{plmTr}{
 plmTr object obtained with the ExonRmaPlm function in aroma.affymetrix() package.
 }
   \item{picname}{
-character corresponding to the name for the output graphs.
+Character with the output file name.
 }
   \item{labels}{
-vector with sample names with the same order as in the expression matrix.
+Optional. Vector with sample names. Samples are in the same order as in the ds object. Default get sample names from the ds object.
 }
   \item{conditions}{
-Optional, vector with sample condition in the same order as in the expression matrix.
+Optional, vector with sample condition in the same order as samples appear in the ds object.
 }
   \item{colors}{
 Optional, vector with the colours corresponding to each condition.
@@ -46,7 +46,7 @@ Plot boxplots with relative log expression values (RLE). Default TRUE.
 Plot boxplots with normalized unscaled standard errors (NUSE). Default TRUE.
 }
   \item{resDir}{
-Results directory. Default ResultsDir.
+Output results directory. Default is ResultsDir.
 }
 }
 \details{
@@ -59,16 +59,11 @@ This function outputs plots in .png format in the resDir directory.
 H. Bengtsson, K. Simpson, J. Bullard & K. Hansen. aroma.affymetrix: A generic framework in R for analyzing small to very large Affymetrix data sets in bounded memory, Tech Report #745, Department of Statistics, University of California, Berkeley, February 2008.
 }
 \author{
-Magdalena Arnal 
+Magdalena Arnal Segura <marnal@imim.es>
 }
 
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+}
+

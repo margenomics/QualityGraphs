@@ -2,10 +2,10 @@
 \alias{qualityplots}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Make plots for microarray quality assessment
+Make different plots for microarray quality assessment.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function can be used as a shortcut to make all quality plots included in QualityGraphs package with a single call. 
 }
 \usage{
 qualityplots(ds, picname, estimates_m = NULL, est_noctrls, labels = NULL, ds.N = NULL, plmTr = NULL, conditions = NULL, colors = NULL, groupn = NULL, all = FALSE, Density = TRUE, Boxplots = TRUE, Clusters = TRUE, PCA = TRUE, estimates = FALSE, noctrls = TRUE, resDir = NULL)
@@ -13,75 +13,70 @@ qualityplots(ds, picname, estimates_m = NULL, est_noctrls, labels = NULL, ds.N =
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{ds}{
-%%     ~~Describe \code{ds} here~~
+Object obtained with aroma.affymetrix and the function AffymetrixCelSet in the aroma.affymetrix package.
 }
   \item{picname}{
-%%     ~~Describe \code{picname} here~~
+Name of output files.
 }
   \item{estimates_m}{
-%%     ~~Describe \code{estimates_m} here~~
+Numeric matrix where columns are samples and rows genes. estimates_m corresponds to the expression matrix with controls.
 }
   \item{est_noctrls}{
-%%     ~~Describe \code{est_noctrls} here~~
+Numeric matrix where columns are samples and rows genes. est_noctrls corresponds to the expression matrix without controls.
 }
   \item{labels}{
-%%     ~~Describe \code{labels} here~~
+Optional. Vector with sample names. Samples are in the same order as in the ds object. Default get sample names from the ds object. It only works for boxplots and density plots
 }
   \item{ds.N}{
-%%     ~~Describe \code{ds.N} here~~
+Aroma affymetrix ds.N object with the normalized data from .CEL files using RMA and quantile normalization.
 }
   \item{plmTr}{
-%%     ~~Describe \code{plmTr} here~~
+plmTr object obtained with the ExonRmaPlm function in aroma.affymetrix() package.
 }
   \item{conditions}{
-%%     ~~Describe \code{conditions} here~~
+Optional, vector with sample condition in the same order as samples appear in the ds object.
 }
   \item{colors}{
-%%     ~~Describe \code{colors} here~~
+Optional, vector with the colous corresponding to each condition. Same order as samples in ds object in the case of boxplots, and same order as columns in the case of clusters and PCA. If the colors are set, clusters, PCA and boxplots have to be generated separately, as samples have a different order.
 }
   \item{groupn}{
-%%     ~~Describe \code{groupn} here~~
+Optional. Number of samples to include in each density plot. If the number is lower than total number of samples, more than one plot is going to be shown. Default is groupn = all samples.
 }
   \item{all}{
-%%     ~~Describe \code{all} here~~
+Optional. If TRUE, an additional plot with all density plots made with a groupn is made.
 }
   \item{Density}{
-%%     ~~Describe \code{Density} here~~
+Call densityplot_all function to make density plots. Default is TRUE.
 }
   \item{Boxplots}{
-%%     ~~Describe \code{Boxplots} here~~
+Call boxplot_all function to make boxplots. Default is TRUE.
 }
   \item{Clusters}{
-%%     ~~Describe \code{Clusters} here~~
+Call clusterdend function to make cluster dendrograms. Default is TRUE.
 }
   \item{PCA}{
-%%     ~~Describe \code{PCA} here~~
+Call makePCA function to make PCA plots. Default is TRUE
 }
   \item{estimates}{
-%%     ~~Describe \code{estimates} here~~
+If TRUE, clusters for estimates_m are made. Default is FALSE.
 }
   \item{noctrls}{
-%%     ~~Describe \code{noctrls} here~~
+If TRUE, clusters for est_noctrls are made. Default is TRUE.
 }
   \item{resDir}{
-%%     ~~Describe \code{resDir} here~~
+Output results directory. Default is ResultsDir.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+This function is a shortcut to call functions: makePCA, clusterdend, boxplot_all and densityplot_all. It makes all the plots for quality assessment in microarray data. \strong{Density plots} show the distribution of log2 raw intensities to check possible technical biases. \strong{Boxplots} show the log2 raw intensities in boxplots to check possible technical biases. \strong{BoxplotsRMA} show normalized log2 intensities with quantile normalization and Robust Multiarray average (RMA). It is used to check if normalization is made properly. \strong{Boxplot NUSE} plot with normalized unscaled standard errors (NUSE). The standard error from the probe-level model are visualized as boxplots. The deviant arrays can be identified by not being centered at 1, or being more spread out than the other arrays.\strong{Boxplot RLE} plot with relative log expression values (RLE). Assuming that most probesets on arrays are not changing, most of the RLE values are close 0. When examining the boxplot, the deviant arrays can be identified by not being centered at 0, or being more spread out than the other arrays.\strong{Clusters} show the sample distribution using different methods. Samples are expected to group together based on their similarity. \strong{PCA} show the sample distribution using a principal component analysis (PCA) in a 3D plot. }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Files are created in the resDir directory with the picname and .png or .pdf extensions.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Magdalena Arnal Segura <marnal@imim.es>.
 }
 \note{
 %%  ~~further notes~~
@@ -93,43 +88,4 @@ qualityplots(ds, picname, estimates_m = NULL, est_noctrls, labels = NULL, ds.N =
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (ds, picname, estimates_m = NULL, est_noctrls, labels = NULL, 
-    ds.N = NULL, plmTr = NULL, conditions = NULL, colors = NULL, 
-    groupn = NULL, all = FALSE, Density = TRUE, Boxplots = TRUE, 
-    Clusters = TRUE, PCA = TRUE, estimates = FALSE, noctrls = TRUE, 
-    resDir = NULL) 
-{
-    library(RColorBrewer)
-    require(gtools)
-    if (!is.null(resDir)) {
-        resultsDir = resDir
-    }
-    if (Density) {
-        densityplot_all(ds, picname = picname, groupn = groupn, 
-            all = all, resDir = resultsDir)
-    }
-    if (Boxplots) {
-        boxplot_all(ds, ds.N = ds.N, plmTr = plmTr, labels = labels, 
-            picname = picname, conditions = conditions, colors = colors, 
-            resDir = resultsDir)
-    }
-    if (Clusters) {
-        clusterdend(estimates_m, est_noctrls, picname = picname, 
-            conditions = conditions, colors = colors, estimates = estimates, 
-            noctrls = noctrls, resDir = resultsDir)
-    }
-    if (PCA) {
-        makePCA(est_noctrls, picname = picname, conditions = conditions, 
-            colors = colors, resDir = resultsDir)
-    }
-  }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
