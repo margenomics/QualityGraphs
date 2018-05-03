@@ -12,7 +12,7 @@ function(ds, ds.N=NULL, plmTr=NULL, picname, labels=labels, conditions=NULL,
     #RMA.bp: If false doesn't plot normalized boxplot
     #RLE: If false doesn't plot the RLE plot
     #NUSE: If false doesn't plot the NUSE plot
-    
+    library(aroma.affymetrix)
     if (is.null(labels)){
         labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
     }
