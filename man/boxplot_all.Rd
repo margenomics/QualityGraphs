@@ -28,7 +28,7 @@ Character with the output file name.
 Optional. Vector with sample names. Samples are in the same order as in the ds object. Default get sample names from the ds object.
 }
   \item{conditions}{
-Optional, vector with sample condition in the same order as samples appear in the ds object.
+Optional, vector with sample condition. IMPORTANT conditions are in the order corresponding to mixedsort(labels).
 }
   \item{colors}{
 Optional, vector with the colours corresponding to each condition.
