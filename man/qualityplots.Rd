@@ -34,10 +34,10 @@ Aroma affymetrix ds.N object with the normalized data from .CEL files using RMA 
 plmTr object obtained with the ExonRmaPlm function in aroma.affymetrix() package.
 }
   \item{conditions}{
-Optional, vector with sample condition in the same order as samples appear in the ds object.
+Optional, vector with sample condition in the same order as sample columns in the expression matrix. IMPORTANT sample columns and sample conditions have to be in order mixedsort(labels).
 }
   \item{colors}{
-Optional, vector with the colous corresponding to each condition. Same order as samples in ds object in the case of boxplots, and same order as columns in the case of clusters and PCA. If the colors are set, clusters, PCA and boxplots have to be generated separately, as samples have a different order.
+Optional, vector with the colous corresponding to each condition in the same order as sample columns in the expression matrix. IMPORTANT sample columns and sample conditions have to be in order mixedsort(labels).
 }
   \item{groupn}{
 Optional. Number of samples to include in each density plot. If the number is lower than total number of samples, more than one plot is going to be shown. Default is groupn = all samples.
