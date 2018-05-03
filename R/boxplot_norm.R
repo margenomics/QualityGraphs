@@ -6,10 +6,6 @@ function(ds,strt=NULL,nd=NULL, parameters, lab, conditions=NULL, colors=NULL){
     #conditions: Vector with the different conditions
     #colors: Vector with the colors assigned to each condition (in order of the unique(conditions))
     
-    if (is.null(labels)){
-        labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
-    }
-    
     if (is.null(strt) & is.null(nd)) {
         strt <- 1
         nd <- length(ds)
