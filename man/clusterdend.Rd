@@ -25,7 +25,7 @@ Character with the output file name.
 Optional. Vector with sample conditions to colour sample names in the plot. conditions vector has to have the same order as the order of samples in the columns of the input expression matrix. IMPORTANT Sample columns in the expression matrix and sample conditions have to be in order mixedsort(labels).
 }
   \item{colors}{
-Optional. Vector with colors corresponding to each sample. If this parameter is not defined, default colors will be used.
+Optional. Vector with colors corresponding to each sample with the order mixedsort(samplename). If this parameter is not defined, default colors will be used.
 }
   \item{estimates}{
 If TRUE, clusters for estimates_m are made. Default is FALSE.
