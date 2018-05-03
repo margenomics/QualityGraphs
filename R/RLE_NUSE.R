@@ -5,10 +5,6 @@ function (bpstats, kind, strt=NULL,nd=NULL, parameters, lab, conditions=NULL, co
     #nd: last sample to be analyzed
     #conditions: Vector with the different conditions
     #colors: Vector with the colors assigned to each condition (in order of the unique(conditions))
-  
-    if (is.null(labels)){
-        labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
-    }
     
     if (is.null(strt) & is.null(nd)) {
         strt <- 1
