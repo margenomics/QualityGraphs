@@ -22,7 +22,7 @@ Character with the output file name.
 Optional. Vector with sample conditions to colour sample names in the plot. conditions vector has to have the same order as the order of samples in the columns of the input expression matrix. IMPORTANT Sample columns in the expression matrix and sample conditions have to be in order mixedsort(labels).
 }
   \item{colors}{
-Optional. Vector with colors corresponding to each sample. If this parameter is not defined, default colors will be used.
+Optional. Vector with colors corresponding to each sample in mixedsort(samplename) order. If this parameter is not defined, default colors will be used.
 }
   \item{dist}{
 Distance where the name of the sample is located with respect to the corresponing point in the plot. Optimal distance is different deppending on the sample number and PC distances. Default is 2. 
