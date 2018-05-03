@@ -5,6 +5,7 @@ function(ds, picname, estimates_m=NULL, est_noctrls, labels=NULL, ds.N=NULL,
                          noctrls=TRUE, resDir=NULL) {
     library(RColorBrewer)
     require(gtools)
+    library(aroma.affymetrix)
     #ds: Aroma affimetrix object
     #picname: Name of the picture
     #estimates_m: matriu amb les intensitats
