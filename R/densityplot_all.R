@@ -1,5 +1,5 @@
 densityplot_all <-
-function(ds, labels, picname, groupn=NULL, all=FALSE, resDir=NULL) {
+function(ds, labels=NULL, picname, groupn=NULL, all=FALSE, resDir=NULL) {
 #Es necessita la funci? setparam
 #Es necessita la funci? densityplot()
 #ds: Aroma affimetrix object
@@ -8,7 +8,9 @@ function(ds, labels, picname, groupn=NULL, all=FALSE, resDir=NULL) {
 #groupn: subset to represent in the density plot
 #all: If TRUE a summary with all the density plots in the same picture is generated
   
-  labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
+    if (!is.null(labels)){
+      labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
+    }
     if (!is.null(resDir)){
       resultsDir=resDir
     }
