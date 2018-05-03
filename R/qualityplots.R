@@ -27,7 +27,7 @@ function(ds, picname, estimates_m=NULL, est_noctrls, labels=NULL, ds.N=NULL,
     }
     #Density plots per separat (subsets of 16 samples) i tots en una mateixa imatge
     if(Density){
-        densityplot_all(ds, picname=picname, groupn= groupn, all=all, resDir=resultsDir)
+        densityplot_all(ds,labels=labels ,picname=picname, groupn= groupn, all=all, resDir=resultsDir)
     }
     #Boxplots
     if(Boxplots){
