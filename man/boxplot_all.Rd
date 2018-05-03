@@ -31,7 +31,7 @@ Optional. Vector with sample names. Samples are in the same order as in the ds o
 Optional, vector with sample condition. IMPORTANT conditions are in the order corresponding to mixedsort(labels).
 }
   \item{colors}{
-Optional, vector with the colours corresponding to each condition.
+Optional, vector with the colours corresponding to each condition with the order mixedsort(samplename).
 }
   \item{raw.bp}{
 Plot boxplots with raw data at log2 scale. Default TRUE.
