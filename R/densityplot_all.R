@@ -7,7 +7,7 @@ function(ds, labels=NULL, picname, groupn=NULL, all=FALSE, resDir=NULL) {
 #picname: output file name
 #groupn: subset to represent in the density plot
 #all: If TRUE a summary with all the density plots in the same picture is generated
-  library(aroma.affymetrix)
+  
     if (is.null(labels)){
       labels <- gsub(paste("_(",xip,")",sep=""),"",ds$Names,fixed=TRUE)
     }
