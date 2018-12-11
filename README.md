@@ -8,3 +8,4 @@
 - **makePCA** : 3D plot with a principal component analysis (PCA)
 - **qualityplots** : A shortcut to call all the previous plots.
 - **Heat.make** : Function to make heatmaps from a numeric matrix.
+- **MakeVolcano** : Function to make heatmaps from a numeric matrix.
