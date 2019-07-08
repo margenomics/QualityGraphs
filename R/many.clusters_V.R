@@ -1,5 +1,5 @@
 many.clusters_V <-
-function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE, 
+function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE, toPNG=TRUE,
                            conditions= NULL, colors=NULL){
     #as.dist ho converteix en un objecte dist mentre que dist calcula l'Euclidiana per defecte 
     #dist(x, method = "euclidean", diag = FALSE, upper = FALSE, p = 2)
@@ -13,6 +13,7 @@ function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE,
     labels <- colnames(x)
     
     use.cor="pairwise.complete.obs"
+    
     #Es un parche per poder fer servir aquesta funciÃ³ en linux
     if (toPDF) 
     {pdf(file=file.path(resultsDir, paste(Filename,"pdf", sep=".")))}
@@ -147,6 +148,20 @@ function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE,
     }
     if (toPDF) 
     {dev.off()}
+      
+      
+     if (toPNG) {
+      png(file=file.path(resultsDir, paste(Filename,"png", sep=".")), width=parameters$wid,height=parameters$hei,res=parameters$res)
+       
+       if (is.null(conditions)) {
+       plot(clust.cor.ward, main=Title, hang=-1)
+       } else {
+       plot(clust.cor.ward, main=Title, xlab="Ward")
+       legend("topright",legend=list1, cex=parameters$ce+0.2,fill=list2)
+       }
+      dev.off()
+    }
+    
     return(list(Corr.ward=clust.cor.ward,Corr.avg=clust.cor.average,Corr.compl=clust.cor.complete,
 
                 Euclid.ward=clust.euclid.ward,Euclid.avg=clust.euclid.average,Euclid.compl=clust.euclid.complete))
