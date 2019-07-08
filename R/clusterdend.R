@@ -1,6 +1,6 @@
 clusterdend <-
 function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL, 
-                        colors=NULL, estimates=FALSE, noctrls=TRUE, resDir=NULL) {
+                        colors=NULL, estimates=FALSE, noctrls=TRUE, resDir=NULL, toPNG=TRUE) {
     #picname: Name of the picture
     #conditions: Vector with the different conditions
     #estimates_m: matriu amb les intensitats
@@ -20,6 +20,6 @@ function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL,
     if(noctrls) {
       labels <- colnames(est_noctrls)
       parameters <- setparam(labels)
-      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters", parameters=parameters, conditions=conditions, colors=colors)
+      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters", parameters=parameters, toPNG=TRUE, conditions=conditions, colors=colors)
     }
 }
