@@ -20,6 +20,6 @@ function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL,
     if(noctrls) {
       labels <- colnames(est_noctrls)
       parameters <- setparam(labels)
-      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters", parameters=parameters, toPNG=TRUE, conditions=conditions, colors=colors)
+      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters", parameters=parameters, toPNG=toPNG, conditions=conditions, colors=colors)
     }
 }
