@@ -8,7 +8,7 @@ Clusters for normalized microarray data
 Function to make plots with dendrograms using different clustering methods. Methods are Ward.D2, average and complete with correlations and euclidean distances.
 }
 \usage{
-clusterdend(estimates_m = NULL, est_noctrls = NULL, picname, conditions = NULL, colors = NULL, estimates = FALSE, noctrls = TRUE, resDir = NULL)
+clusterdend(estimates_m = NULL, est_noctrls = NULL, picname, conditions = NULL, colors = NULL, estimates = FALSE, noctrls = TRUE, resDir = NULL, toPNG=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -35,6 +35,9 @@ If TRUE, clusters for est_noctrls are made. Default is TRUE.
 }
   \item{resDir}{
 Output results directory. Default is ResultsDir.
+}
+  \item{toPNG}{
+Generates the first dendrogram in a png format. Default TRUE.
 }
 }
 \details{
