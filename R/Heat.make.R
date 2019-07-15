@@ -1,4 +1,4 @@
-Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rownames.vect=NULL, cex.col=0.8, cex.row=0.3) {
+Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rownames.vect=NULL, cex.col=0.8, cex.row=0.3, toPNG=FALSE) {
   #data.clus: matrix to plot in the heatmap
   #cols.s: vector of colors corresponding to the columns in the matrix data.clus 
   #filename: Name of the output file in .pdf format
@@ -7,6 +7,7 @@ Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rowna
   #rownames.vect: Vector with row names to be shown in the heatmap
   #cex.col: size of colnames
   #cex.row: size of rownames, if rownames=TRUE
+  #toPNG: If TRUE heatmap is generated in png format
   require(gplots)
   
   heatcol<-colorRampPalette(c("blue", "white","red"), space = "rgb")
@@ -16,7 +17,12 @@ Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rowna
   clust.rows <- hclust(as.dist(1-cor(t(data.clus))),method="average")
   if(rownames) {
     #Fem el plot
-    pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
+    if (toPNG) {
+       parameters <- setparam(colnames(data.clus))
+       png(file=file.path(filedir, paste(filename,"pdf", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+    } else {
+       pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
+    }
     heatm<-heatmap.2(as.matrix(data.clus), col = heatcol(256),
                      dendrogram="column", Colv=as.dendrogram(clust.cols),
                      Rowv=as.dendrogram(clust.rows),labRow=rownames.vect,
@@ -25,7 +31,12 @@ Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rowna
     dev.off()
   } else {
     #Fem el plot
-    pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
+    if (toPNG) {
+       parameters <- setparam(colnames(data.clus))
+       png(file=file.path(filedir, paste(filename,"pdf", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+    } else {
+       pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
+    }
     heatm<-heatmap.2(as.matrix(data.clus), col = heatcol(256),
                      dendrogram="column", Colv=as.dendrogram(clust.cols),
                      Rowv=as.dendrogram(clust.rows),labRow="",
