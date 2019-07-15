@@ -8,7 +8,7 @@
   This function makes a heatmap from a numeric matrix using the package "gplots". The output is an image in pdf format. 
 }
 \usage{
-  Heat.make(data.clus, cols.s, filename, filedir, rownames=TRUE, rownames.vect=NULL, cex.col=0.8, cex.row=0.3)
+  Heat.make(data.clus, cols.s, filename, filedir, rownames=TRUE, rownames.vect=NULL, cex.col=0.8, cex.row=0.3, toPNG=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -35,6 +35,9 @@
   }
   \item{cex.row}{
     Size of row names in the plot, (if rownames=TRUE).
+  }
+  \item{toPNG}{
+    If TRUE heatmap is generated in .png format. Default is FALSE
   }
 }
 \details{
