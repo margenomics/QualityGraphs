@@ -19,7 +19,7 @@ Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rowna
     #Fem el plot
     if (toPNG) {
        parameters <- setparam(colnames(data.clus))
-       png(file=file.path(filedir, paste(filename,"pdf", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+       png(file=file.path(filedir, paste(filename,"png", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
     } else {
        pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
     }
@@ -33,7 +33,7 @@ Heat.make <- function(data.clus, cols.s, filename, filedir, rownames=TRUE, rowna
     #Fem el plot
     if (toPNG) {
        parameters <- setparam(colnames(data.clus))
-       png(file=file.path(filedir, paste(filename,"pdf", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+       png(file=file.path(filedir, paste(filename,"png", sep=".")),width=parameters$wid,height=parameters$hei,res=parameters$res)
     } else {
        pdf(file=file.path(filedir, paste(filename,"pdf", sep=".")))
     }
