@@ -8,7 +8,7 @@ Make dendrogram with different clustering techniques
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-many.clusters_V(x, resultsDir, Filename, Title, parameters, toPDF = TRUE, conditions = NULL, colors = NULL)
+many.clusters_V(x, resultsDir, Filename, Title, parameters, toPDF = TRUE, toPNG=TRUE, conditions = NULL, colors = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,6 +28,9 @@ many.clusters_V(x, resultsDir, Filename, Title, parameters, toPDF = TRUE, condit
 %%     ~~Describe \code{parameters} here~~
 }
   \item{toPDF}{
+%%     ~~Describe \code{toPDF} here~~
+}
+  \item{toPNG}{
 %%     ~~Describe \code{toPDF} here~~
 }
   \item{conditions}{
