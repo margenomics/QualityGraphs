@@ -8,36 +8,36 @@
   This function makes a heatmap from a numeric matrix using the package "gplots". The output is an image in pdf format. 
 }
 \usage{
-  Heat.make(data.clus, cols.s, filename, filedir, rownames=TRUE, rownames.vect=NULL, cex.col=0.8, cex.row=0.3, toPNG=FALSE)
+  Heat.make(data.clus, cols.s=NULL, filename, filedir, rownames.vect="", cex.col=0.8, clustinrows=T,clustincols=T, toPNG=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data.clus}{
-    Matrix to plot in the heatmap.
+    Numeric matrix with the intensity values to plot.
   }
   \item{cols.s}{
-    Vector of colors corresponding to the columns in the matrix data.clus.
+    Vector with colors corresponding to the conditions in the heatmap with the same order as the columns in the matrix.
   }
   \item{filename}{
-    Name of the output file in .pdf format.
+    Name of the output file.
   }
   \item{filedir}{
     Name of the resultsDir.
   }
-  \item{rownames}{
-    If TRUE row names are shown in the heatmap.
-  }
   \item{rownames.vect}{
-    Vector with row names to be shown in the heatmap.
+    Vector with the names of the genes in the heatmap. If rownames.vect="" no rownames are shown.
   }
   \item{cex.col}{
-    Size of column names in the plot.
+    Size of the column labels.
   }
-  \item{cex.row}{
-    Size of row names in the plot, (if rownames=TRUE).
+  \item{clustinrows}{
+    TRUE if we want to order rows based on hierarchical clustering average+correlation distances.
+  }
+  \item{clustincols}{
+    TRUE if we want to order columns based on hierarchical clustering Ward D2 + euclidean distances.
   }
   \item{toPNG}{
-    If TRUE heatmap is generated in .png format. Default is FALSE
+    TRUE if we want .png output, FALSE if we want .pdf output
   }
 }
 \details{
