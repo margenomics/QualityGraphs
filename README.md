@@ -9,3 +9,4 @@
 - **qualityplots** : A shortcut to call all the previous plots.
 - **Heat.make** : Function to make heatmaps from a numeric matrix.
 - **MakeVolcano** : Function to make heatmaps from a numeric matrix.
+- **pheat_make** : Function to make heatmaps from a numeric matrix using pheatmap package.
