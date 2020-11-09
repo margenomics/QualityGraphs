@@ -1,4 +1,4 @@
-# Quality Graphs for aroma affymetrix based normalization in microarray data.
+# Quality Graphs aroma affymetrix based normalization in microarray data and for RNASeq data.
 
 ## This package contains functions to perform the quality control analysis for microarray data
 
@@ -9,4 +9,5 @@
 - **qualityplots** : A shortcut to call all the previous plots.
 - **Heat.make** : Function to make heatmaps from a numeric matrix.
 - **MakeVolcano** : Function to make heatmaps from a numeric matrix.
-- **pheat_make** : Function to make heatmaps from a numeric matrix using pheatmap package.
+- **PHEAT.MAKE** : Function to make heatmaps from a numeric matrix using pheatmap package.
+- **RNASeq.metrics.plots** : Function to make RNASeq metrics plots for alignment assessment.
