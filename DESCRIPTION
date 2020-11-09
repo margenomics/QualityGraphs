@@ -1,9 +1,10 @@
 Package: QualityGraphs
 Type: Package
-Title: Make quality graphs for microarray data based on objects obtained witharoma affymetrix normalization.
+Title: Make quality graphs for microarray data based on objects obtained with aroma affymetrix normalization.
 Version: 1.0
 Date: 2018-04-30
 Author: Magdalena Arnal Segura <marnal@imim.es>
 Maintainer: Magdalena Arnal <marnal@imim.es>
 Description: Package to make density plots, boxplots for raw and normalized data, clusters with different methods (average, Ward.D2 and complete) and with different distances (euclidean and correlations), and PCA 3Dplot.
 License: MIT + file LICENSE
+RoxygenNote: 7.1.1
