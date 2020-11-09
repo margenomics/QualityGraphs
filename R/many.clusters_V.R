@@ -14,7 +14,7 @@ function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE, toPNG=TRUE,
     
     use.cor="pairwise.complete.obs"
     
-    #Es un parche per poder fer servir aquesta funciÃ³ en linux
+    #Es un parche per poder fer servir aquesta funcio en linux
     if (toPDF) 
     {pdf(file=file.path(resultsDir, paste(Filename,"pdf", sep=".")))}
     

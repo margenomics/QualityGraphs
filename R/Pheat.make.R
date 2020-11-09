@@ -2,6 +2,36 @@
 ### PHEAT.MAKE FUNCTION ###
 ##########################
 
+##' Heatmaps using pheatmap package
+##' 
+##' Function to make heatmaps from a numeric matrix using pheatmap package
+##'
+##' This function makes a plot in png format using the results from the differential 
+##' expression analysis with "limma" package. It uses the columns "adj.P.Val" or 
+##' "P.Value" depending on the value "adj" and the column logFC. Cut-off is used in 
+##' order to indicate the DE genes in the scatterplot.
+##'
+##' @param matrix Numeric matrix with the intensity values to plot.
+##' @param cols.s List for specifying annotation_row and annotation_col track 
+##' colors manually. It is possible to define the colors for only some of the features.
+##' @param filename Output file name.
+##' @param filedir Output directory, it can be a path.
+##' @param rownames.vect Vector with the names of the genes in the heatmap.
+##' @param cex.col Size of the column labels
+##' @param scale Character indicating if the values should be centered and 
+##' scaled in either the row direction or the column direction, or none. 
+##' Corresponding values are "row", "column" and "none"
+##' @param toPNG TRUE if we want .png output, FALSE if we want .pdf output.
+##' @param annotation_col Similar to annotation_row, but for columns.
+##' @param annotation_row Data frame that specifies the annotations shown on 
+##' left side of the heatmap. Each row defines the features for a specific row.
+##' @return The plot is created in the "filedir" directory with the name "filename"
+##' in the especified format (default pdf).
+##' @author Ariadna Acedo Terrades <aacedo@imim.es>
+##' @export
+##' @importFrom pheatmap pheatmap
+##' @import gplots 
+
 PHEAT.MAKE <- function(matrix, cols.s=NULL, filename, filedir,
          rownames.vect="", cex.col=0.8, scale="none", toPNG=FALSE, annotation_col=NULL, annotation_row=NULL) {
   #Matrix: Numeric matrix with the intensity values to plot
