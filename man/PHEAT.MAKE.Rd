@@ -14,7 +14,7 @@ PHEAT.MAKE(
   scale = "none",
   toPNG = FALSE,
   annotation_col = NULL,
-  annotation_row = NULL
+  showRownames = F
 )
 }
 \arguments{
@@ -39,7 +39,7 @@ Corresponding values are "row", "column" and "none"}
 
 \item{annotation_col}{Similar to annotation_row, but for columns.}
 
-\item{annotation_row}{Data frame that specifies the annotations shown on 
+\item{showRownames}{Specifies wetheer you want the annotations rows on 
 left side of the heatmap. Each row defines the features for a specific row.}
 }
 \value{
