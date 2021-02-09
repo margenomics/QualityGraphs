@@ -33,12 +33,12 @@
 ##' @import gplots 
 
 PHEAT.MAKE <- function(matrix, cols.s=NULL, filename, filedir,
-         rownames.vect="", cex.col=0.8, scale="none", toPNG=FALSE, annotation_col=NULL, annotation_row=NULL) {
+         rownames.vect="", cex.col=0.8, scale="none", toPNG=FALSE, annotation_col=NULL, showRownames=F) {
   #Matrix: Numeric matrix with the intensity values to plot
   #cols.s: list for specifying annotation_row and annotation_col track colors manually. It is possible to define the colors for only some of the features. 
   # !! use names of colors in R !!
- 
-   # exemple of cols.s  :
+  
+  # exemple of cols.s  :
   # ann_colors = list(
   # Time = c("white", "firebrick"),
   # CellType = c(CT1 = "#1B9E77", CT2 = "#D95F02"),
@@ -65,7 +65,7 @@ PHEAT.MAKE <- function(matrix, cols.s=NULL, filename, filedir,
   # map <- setNames(pal,unique(cond))
   # colors <- map[cond]
   ##################################################################################
-
+  
   #################################################################################
   #Set the cex values for rows
   if (length(rownames.vect) == 1) {
@@ -93,69 +93,66 @@ PHEAT.MAKE <- function(matrix, cols.s=NULL, filename, filedir,
   }
   ################################################################################
   
-
-if(is.null(cols.s)) { #no hi ha colors
-  if(is.null(annotation_col)){ #no hi ha col annotation
-    if(is.null(annotation_row)){ #no hi ha row annotation
-      pheatm<-pheatmap(matrix, col = heatcol(256),
-                         cluster_row = T, cluster_cols = T ,
-                        clustering_method = "ward.D2",clustering_distance_cols = "correlation",
-                         scale=scale, colCol = heatcol,
-                         main="",cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0)
-    }else{ # si hi ha row annotation
-       pheatm<-pheatmap(matrix, col = heatcol(256),
-                         cluster_row = T,cluster_cols = T ,
-                        clustering_method = "ward.D2",clustering_distance_cols = "correlation",
-                         scale=scale, colCol = heatcol,
-                         main="",cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0,
-                        annotation_row = annotation_row)
-    }
-  }else{ #si hi ha col annotation
-    if(is.null(annotation_row)){ #no hi ha row annotation
-      pheatm<-pheatmap(matrix, col = heatcol(256),
-                       cluster_row = T,cluster_cols = T ,
-                       clustering_method = "ward.D2",clustering_distance_cols = "correlation",
-                       scale=scale, colCol = heatcol,
-                       main="",cexRow=cex.row, cexCol=cex.col,
-                       show_rownames = F, treeheight_row = 0, annotation_col = annotation_col)
-    }else{ # si hi ha row annotation
-      pheatm<-pheatmap(matrix, col = heatcol(256),
-                       cluster_row = T,cluster_cols = T ,
-                       clustering_method = "ward.D2",clustering_distance_cols = "correlation",
-                       scale=scale, colCol = heatcol,
-                       main="",cexRow=cex.row, cexCol=cex.col,
-                       show_rownames = F, treeheight_row = 0,
-                       annotation_row = annotation_row, annotation_col = annotation_col)
-    }
-  }
-}else{ # si hi ha cols.s
+  
+  if(is.null(cols.s)) { #no hi ha colors
     if(is.null(annotation_col)){ #no hi ha col annotation
-      if(is.null(annotation_row)){ #no hi ha row annotation
+      if(showRownames){ #no hi ha row annotation
         pheatm<-pheatmap(matrix, col = heatcol(256),
-                         cluster_row = T,cluster_cols = T ,
+                         cluster_row = T, cluster_cols = T ,
                          clustering_method = "ward.D2",clustering_distance_cols = "correlation",
                          scale=scale, colCol = heatcol,
                          main="",cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0)
+                         show_rownames = T, treeheight_row = 0)
       }else{ # si hi ha row annotation
         pheatm<-pheatmap(matrix, col = heatcol(256),
                          cluster_row = T,cluster_cols = T ,
                          clustering_method = "ward.D2",clustering_distance_cols = "correlation",
                          scale=scale, colCol = heatcol,
                          main="",cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0,
-                         annotation_row = annotation_row, annotation_colors=cols.s)
+                         show_rownames = F, treeheight_row = 0)
       }
     }else{ #si hi ha col annotation
-      if(is.null(annotation_row)){ #no hi ha row annotation
+      if(showRownames){ #no hi ha row annotation
         pheatm<-pheatmap(matrix, col = heatcol(256),
                          cluster_row = T,cluster_cols = T ,
                          clustering_method = "ward.D2",clustering_distance_cols = "correlation",
                          scale=scale, colCol = heatcol,
                          main="",cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0, annotation_col = annotation_col,
+                         show_rownames = T, treeheight_row = 0, annotation_col = annotation_col)
+      }else{ # si hi ha row annotation
+        pheatm<-pheatmap(matrix, col = heatcol(256),
+                         cluster_row = T,cluster_cols = T ,
+                         clustering_method = "ward.D2",clustering_distance_cols = "correlation",
+                         scale=scale, colCol = heatcol,
+                         main="",cexRow=cex.row, cexCol=cex.col,
+                         show_rownames = F, treeheight_row = 0, annotation_col = annotation_col)
+      }
+    }
+  }else{ # si hi ha cols.s
+    if(is.null(annotation_col)){ #no hi ha col annotation
+      if(showRownames){ #no hi ha row annotation
+        pheatm<-pheatmap(matrix, col = heatcol(256),
+                         cluster_row = T,cluster_cols = T ,
+                         clustering_method = "ward.D2",clustering_distance_cols = "correlation",
+                         scale=scale, colCol = heatcol,
+                         main="",cexRow=cex.row, cexCol=cex.col,
+                         show_rownames = T, treeheight_row = 0,annotation_colors=cols.s)
+      }else{ # si hi ha row annotation
+        pheatm<-pheatmap(matrix, col = heatcol(256),
+                         cluster_row = T,cluster_cols = T ,
+                         clustering_method = "ward.D2",clustering_distance_cols = "correlation",
+                         scale=scale, colCol = heatcol,
+                         main="",cexRow=cex.row, cexCol=cex.col,
+                         show_rownames = F, treeheight_row = 0, annotation_colors=cols.s)
+      }
+    }else{ #si hi ha col annotation
+      if(showRownames){ #no hi ha row annotation
+        pheatm<-pheatmap(matrix, col = heatcol(256),
+                         cluster_row = T,cluster_cols = T ,
+                         clustering_method = "ward.D2",clustering_distance_cols = "correlation",
+                         scale=scale, colCol = heatcol,
+                         main="",cexRow=cex.row, cexCol=cex.col,
+                         show_rownames = T, treeheight_row = 0, annotation_col = annotation_col,
                          annotation_colors=cols.s)
       }else{ # si hi ha row annotation
         pheatm<-pheatmap(matrix, col = heatcol(256),
@@ -163,13 +160,12 @@ if(is.null(cols.s)) { #no hi ha colors
                          clustering_method = "ward.D2",clustering_distance_cols = "correlation",
                          scale=scale, colCol = heatcol,
                          main="", cexRow=cex.row, cexCol=cex.col,
-                         show_rownames = F, treeheight_row = 0,
-                         annotation_row = annotation_row, annotation_col = annotation_col,
+                         show_rownames = F, treeheight_row = 0, annotation_col = annotation_col,
                          annotation_colors=cols.s)
       }
     }
-}
+  }
   
-dev.off()
-
+  dev.off()
+  
 }
