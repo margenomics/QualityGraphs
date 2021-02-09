@@ -23,8 +23,7 @@
 ##' Corresponding values are "row", "column" and "none"
 ##' @param toPNG TRUE if we want .png output, FALSE if we want .pdf output.
 ##' @param annotation_col Similar to annotation_row, but for columns.
-##' @param annotation_row Data frame that specifies the annotations shown on 
-##' left side of the heatmap. Each row defines the features for a specific row.
+##' @param showRownames Indicates wether you want to show rownames or not. Each row defines the features for a specific row.
 ##' @return The plot is created in the "filedir" directory with the name "filename"
 ##' in the especified format (default pdf).
 ##' @author Ariadna Acedo Terrades <aacedo@imim.es>
