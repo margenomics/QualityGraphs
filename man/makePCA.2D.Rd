@@ -10,7 +10,8 @@ makePCA.2D(
   conditions = NULL,
   colors = NULL,
   dist = 2,
-  resDir = NULL
+  resDir = NULL,
+  palette = c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ makePCA.2D(
 \item{dist}{distance between the dots of the PCa and the labels}
 
 \item{resDir}{character vector with output results directory. Default is working directory.}
+
+\item{palette}{character vector with palette to use (eg. brewer.pal(8, "Dark2")).}
 }
 \value{
 files are created in the resDir directory with the picname and .png extension.

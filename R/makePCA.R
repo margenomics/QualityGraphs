@@ -1,6 +1,6 @@
 makePCA <-
 function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2, 
-                    resDir=NULL){
+                    resDir=NULL,palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))){
     #est_noctrls: Matriu amb les intensitats sense controls
     #labels: Array names
     #picname: Name of the picture
@@ -35,7 +35,7 @@ function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2,
     }else if(is.null(colors)){
         
         list1 <- unique(as.character(sort(conditions)))
-        ColVect <- c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired")) #20 colors en total
+        ColVect <-palette #20 colors en total
         list2 <- ColVect[1:length(unique(conditions))]
         map = setNames(list2, list1)
         colors <- map[conditions]

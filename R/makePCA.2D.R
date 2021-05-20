@@ -7,13 +7,14 @@
 ##' @param dist distance between the dots of the PCa and the labels
 ##' @param resDir character vector with output results directory. Default is working directory.
 ##' @param picname character vector with the name of output files.
+##' @param palette character vector with palette to use (eg. brewer.pal(8, "Dark2")).
 ##' @return files are created in the resDir directory with the picname and .png extension.
 ##' @author Julia Perera Bel <jperera@imim.es>
 ##' @export
 
 makePCA.2D <-
   function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2, 
-           resDir=NULL){
+           resDir=NULL,palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))){
 
     if (!is.null(resDir)){
       resultsDir=resDir
@@ -38,7 +39,7 @@ makePCA.2D <-
     }else if(is.null(colors)){
       
       list1 <- unique(as.character(sort(conditions)))
-      ColVect <- c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired")) #20 colors en total
+      ColVect <- palette #20 colors en total default
       list2 <- ColVect[1:length(unique(conditions))]
       map = setNames(list2, list1)
       colors <- map[conditions]
