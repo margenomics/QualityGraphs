@@ -1,6 +1,7 @@
 clusterdend <-
 function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL, 
-                        colors=NULL, estimates=FALSE, noctrls=TRUE, resDir=NULL, toPNG=TRUE) {
+         colors=NULL, estimates=FALSE, noctrls=TRUE, resDir=NULL, toPNG=TRUE,
+         palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))) {
     #picname: Name of the picture
     #conditions: Vector with the different conditions
     #estimates_m: matriu amb les intensitats
@@ -14,12 +15,16 @@ function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL,
     if(estimates) {
       labels <- colnames(estimates_m)
       parameters <- setparam(labels)
-      many.clusters_V(estimates_m,resultsDir,paste(picname, "ClustersWithCtrls", sep="_"),"Clusters with ctrls", parameters=parameters, conditions=conditions, colors=colors)
+      many.clusters_V(estimates_m,resultsDir,paste(picname, "ClustersWithCtrls", sep="_"),"Clusters with ctrls", 
+                      parameters=parameters, conditions=conditions, 
+                      colors=colors,palette=palette)
     } 
     
     if(noctrls) {
       labels <- colnames(est_noctrls)
       parameters <- setparam(labels)
-      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters", parameters=parameters, toPNG=toPNG, conditions=conditions, colors=colors)
+      many.clusters_V(est_noctrls,resultsDir,paste(picname, "Clusters", sep="_"),"Clusters",
+                      parameters=parameters, toPNG=toPNG, conditions=conditions, 
+                      colors=colors,palette=palette)
     }
 }
