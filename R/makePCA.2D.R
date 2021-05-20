@@ -8,13 +8,15 @@
 ##' @param resDir character vector with output results directory. Default is working directory.
 ##' @param picname character vector with the name of output files.
 ##' @param palette character vector with palette to use (eg. brewer.pal(8, "Dark2")).
+##' @param legend.pos position of the legend (default "bottomright")
 ##' @return files are created in the resDir directory with the picname and .png extension.
 ##' @author Julia Perera Bel <jperera@imim.es>
 ##' @export
 
 makePCA.2D <-
   function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2, 
-           resDir=NULL,palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))){
+           resDir=NULL,legend.pos="bottomright",
+           palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))){
 
     if (!is.null(resDir)){
       resultsDir=resDir
@@ -49,7 +51,7 @@ makePCA.2D <-
                   main='PCA', col= colors, pch=20)
       ##per canviar la dist?ncia del text amb els punts s'ha de sumar a les coordenades pca3d$xyz.convert(pca.filt$x)
       text(pca.filt$x[,1]+dist,pca.filt$x[,2]+dist, labels=rownames(pca.filt$x), cex=parameters$ce+0.2,col=colors)
-      legend("bottomright",legend=list1,col=list2,pch=16,ncol=1,cex=0.9)
+      legend(legend.pos,legend=list1,col=list2,pch=16,ncol=1,cex=0.9)
       
     } else {
       list1 <- unique(conditions)
@@ -62,7 +64,7 @@ makePCA.2D <-
                   main='PCA', col= colors, pch=20)
       ##per canviar la dist?ncia del text amb els punts s'ha de sumar a les coordenades pca3d$xyz.convert(pca.filt$x)
       text(pca.filt$x[,1]+dist,pca.filt$x[,2]+dist, labels=rownames(pca.filt$x), cex=parameters$ce+0.2,col=colors)
-      legend("bottomright",legend=list1,col=list2,pch=16,ncol=1,cex=0.9)
+      legend(legend.pos,legend=list1,col=list2,pch=16,ncol=1,cex=0.9)
     }
     dev.off()
   }

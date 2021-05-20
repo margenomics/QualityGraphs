@@ -11,6 +11,7 @@ makePCA.2D(
   colors = NULL,
   dist = 2,
   resDir = NULL,
+  legend.pos = "bottomright",
   palette = c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))
 )
 }
@@ -26,6 +27,8 @@ makePCA.2D(
 \item{dist}{distance between the dots of the PCa and the labels}
 
 \item{resDir}{character vector with output results directory. Default is working directory.}
+
+\item{legend.pos}{position of the legend (default "bottomright")}
 
 \item{palette}{character vector with palette to use (eg. brewer.pal(8, "Dark2")).}
 }
