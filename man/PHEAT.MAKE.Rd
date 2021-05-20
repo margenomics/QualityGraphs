@@ -39,8 +39,7 @@ Corresponding values are "row", "column" and "none"}
 
 \item{annotation_col}{Similar to annotation_row, but for columns.}
 
-\item{showRownames}{Specifies wetheer you want the annotations rows on 
-left side of the heatmap. Each row defines the features for a specific row.}
+\item{showRownames}{Indicates wether you want to show rownames or not. Each row defines the features for a specific row.}
 }
 \value{
 The plot is created in the "filedir" directory with the name "filename"
