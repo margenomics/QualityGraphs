@@ -1,6 +1,6 @@
 many.clusters_V <-
 function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE, toPNG=TRUE,
-                           conditions= NULL, colors=NULL){
+                           conditions= NULL, colors=NULL,palette=c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired"))){
     #as.dist ho converteix en un objecte dist mentre que dist calcula l'Euclidiana per defecte 
     #dist(x, method = "euclidean", diag = FALSE, upper = FALSE, p = 2)
     #050214: afegim a la correlaci? la possibilitat d'acceptar NAs
@@ -40,7 +40,7 @@ function(x, resultsDir,Filename, Title, parameters, toPDF=TRUE, toPNG=TRUE,
     }else if(is.null(colors)){
         
         list1 <- unique(as.character(sort(conditions)))
-        ColVect <- c(brewer.pal(8, "Dark2"), brewer.pal(12, "Paired")) #20 colors en total
+        ColVect <- palette #20 colors en total by default
         list2 <- ColVect[1:length(unique(conditions))]
         map = setNames(list2, list1)
         colors <- map[conditions]
